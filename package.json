@@ -1,0 +1,25 @@
+{
+  "name": "shorts-scheduler-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The Shorts Scheduler worker: publishes due shorts from the site's Google Drive to each user's YouTube channel. Runs on its own and talks to the backend only through the shared MongoDB database.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:restart": "pm2 restart ecosystem.config.cjs",
+    "pm2:logs": "pm2 logs shorts-bot"
+  },
+  "overrides": {
+    "gaxios": "7.3.1"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "googleapis": "^178.0.0",
+    "mongoose": "^9.11.4"
+  }
+}
